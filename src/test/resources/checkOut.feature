@@ -3,18 +3,39 @@ Feature: Checkout
 
   @go-to-checkout-page
   Scenario: Verify that the user succesfully go to checkout page
-    Given User doing login with "standard_user" and "secret_sauce"
-    When User is on productlist page
+    Given User is on landing page
+    When User input username with "standard_user"
+    And User input password with "secret_sauce"
+    And User click login button
+    And User is on productlist page
     And User add cart product Backpack
     And User click cart button
     And User is on cart page
     And User click checkout button
     Then User is on Your Information
 
+  @back-to-cart
+  Scenario: Verify that the user succesfully can back to cart page
+    Given User is on landing page
+    When User input username with "standard_user"
+    And User input password with "secret_sauce"
+    And User click login button
+    And User is on productlist page
+    And User add cart product Backpack
+    And User click cart button
+    And User is on cart page
+    And User click checkout button
+    Then User is on Your Information
+    And User click cancel button
+    And User is on cart page
+
   @checkout-empty-information
   Scenario: Verify that the user has doing checkout without input any Information
-    Given User doing login with "standard_user" and "secret_sauce"
-    When User is on productlist page
+    Given User is on landing page
+    When User input username with "standard_user"
+    And User input password with "secret_sauce"
+    And User click login button
+    And User is on productlist page
     And User add cart product Backpack
     And User click cart button
     And User is on cart page
@@ -25,8 +46,11 @@ Feature: Checkout
 
   @checkout-empty-firstname
   Scenario: Verify that the user has doing checkout without input First Name
-    Given User doing login with "standard_user" and "secret_sauce"
-    When User is on productlist page
+    Given User is on landing page
+    When User input username with "standard_user"
+    And User input password with "secret_sauce"
+    And User click login button
+    And User is on productlist page
     And User add cart product Backpack
     And User click cart button
     And User is on cart page
@@ -39,8 +63,11 @@ Feature: Checkout
 
   @checkout-empty-lastname
   Scenario: Verify that the user has doing checkout without input Last Name
-    Given User doing login with "standard_user" and "secret_sauce"
-    When User is on productlist page
+    Given User is on landing page
+    When User input username with "standard_user"
+    And User input password with "secret_sauce"
+    And User click login button
+    And User is on productlist page
     And User add cart product Backpack
     And User click cart button
     And User is on cart page
@@ -53,8 +80,11 @@ Feature: Checkout
 
   @checkout-empty-zipcode
   Scenario: Verify that the user has doing checkout without input Portal Code
-    Given User doing login with "standard_user" and "secret_sauce"
-    When User is on productlist page
+    Given User is on landing page
+    When User input username with "standard_user"
+    And User input password with "secret_sauce"
+    And User click login button
+    And User is on productlist page
     And User add cart product Backpack
     And User click cart button
     And User is on cart page
@@ -67,8 +97,11 @@ Feature: Checkout
 
   @checkout-overview-page
   Scenario: Verify that the user succesfully can cancel Checkout process
-    Given User doing login with "standard_user" and "secret_sauce"
-    When User is on productlist page
+    Given User is on landing page
+    When User input username with "standard_user"
+    And User input password with "secret_sauce"
+    And User click login button
+    And User is on productlist page
     And User add cart product Backpack
     And User click cart button
     And User is on cart page
