@@ -16,6 +16,7 @@ public class checkOut_StepDef extends BaseTest {
         checkOutPage.goToProductLisPage();
     }
 
+
     @And("User add cart product Backpack")
     public void userAddCartProductBackpack() {
         checkOutPage.clickAddCartBackPack();
