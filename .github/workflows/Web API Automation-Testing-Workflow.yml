@@ -24,8 +24,8 @@ jobs:
     - name: Setup Firefox
   uses: browser-actions/setup-firefox@v1.5.4
 
-   - name: setup gradlew
-   run: chmod +x gradlew
+   - name: gradlew setup
+   run: Chmod +x gradlew
 
    - name: Execute test
    run: ./gradlew cucumber
