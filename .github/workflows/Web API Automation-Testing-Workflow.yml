@@ -1,47 +1,47 @@
-name: Web API Automation Testing Workflow
+# name: Web API Automation Testing Workflow
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  workflow_dispatch:
+# on:
+#   push:
+#     branches: [ "main" ]
+#   pull_request:
+#     branches: [ "main" ]
+#   workflow_dispatch:
 
-permissions: 
-  contents: read
-  pages: write
+# permissions: 
+#   contents: read
+#   pages: write
 
-jobs:
- Build:
-    runs-on: ubuntu-latest
+# jobs:
+#  Build:
+#     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v4
+#     steps:
+#     - uses: actions/checkout@v4
     
-    - name: Set up JDK 23
-      uses: actions/setup-java@v4.7.0
-      with:
-        java-version: '23'
-        distribution: 'temurin'
+#     - name: Set up JDK 23
+#       uses: actions/setup-java@v4.7.0
+#       with:
+#         java-version: '23'
+#         distribution: 'temurin'
 
-    - name: Setup Firefox
-      uses: browser-actions/setup-firefox@v1.5.4
-      with:
-          firefox-version: latest
-          firefox-option: '--headless'
+#     - name: Setup Firefox
+#       uses: browser-actions/setup-firefox@v1.5.4
+#       with:
+#           firefox-version: latest
+#           firefox-option: '--headless'
   
-    - name: Setup gradlew
-      run: chmod +x gradlew
+#     - name: Setup gradlew
+#       run: chmod +x gradlew
 
-    - name: Execute Test
-      run: ./gradlew clean test
+#     - name: Execute Test
+#       run: ./gradlew clean test
 
-    - name: Archive test results
-      uses: action/upload-artifact@v4.3.0
-      if: always ()
-      with:
-        name: cucumber reports
-        path: target/cucumber-reports.html
+#     - name: Archive test results
+#       uses: action/upload-artifact@v4.3.0
+#       if: always ()
+#       with:
+#         name: cucumber reports
+#         path: target/cucumber-reports.html
 
 
    
@@ -53,40 +53,35 @@ jobs:
 
 
 
-# name: Web API Automation Testing Workflow
+name: Web API Automation Testing Workflow
 
-# on:
-#   push:
-#     branches: [ "main" ]
-#   pull_request:
-#     branches: [ "main" ]
-#   workflow_dispatch:
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
 
 
-# jobs:
-#  Build:
-#     runs-on: macos-lates
+jobs:
+ Build:
+    runs-on: macos-latest
 
-#     steps:
-#     - uses: actions/checkout@v4
+    steps:
+    - uses: actions/checkout@v4
     
-#     - name: Set up JDK 23
-#       uses: actions/setup-java@v4.7.0
-#       with:
-#         java-version: '23'
-#         distribution: 'temurin'
+    - name: Set up JDK 23
+      uses: actions/setup-java@v4.7.0
+      with:
+        java-version: '23'
+        distribution: 'temurin'
 
-#     - name: Setup Chrome
-#       uses: browser-actions/setup-chrome@v1.7.3
+    - name: Setup Chrome
+      uses: browser-actions/setup-chrome@v1.7.3
   
-#     - name: Setup gradlew
-#       run: chmod +x gradlew
+    - name: Setup gradlew
+      run: chmod +x gradlew
 
-#     - name: Execute Test
-#       run: ./gradlew clean test
-
-  
-
-  
-  
+    - name: Execute Test
+      run: ./gradlew clean test
 
