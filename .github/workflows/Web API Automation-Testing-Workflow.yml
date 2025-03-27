@@ -10,7 +10,7 @@ on:
 
 jobs:
  Build:
-    runs-on: ubuntu-lates
+    runs-on: macos-lates
 
     steps:
     - uses: actions/checkout@v4
