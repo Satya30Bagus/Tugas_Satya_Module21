@@ -7,13 +7,13 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
-# permissions: 
-#   contents: read
-#   pages: write
+permissions: 
+  contents: read
+  pages: write
 
 jobs:
  Build:
-    runs-on: ubuntu-lates
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -27,7 +27,7 @@ jobs:
     - name: Setup Firefox
       uses: browser-actions/setup-firefox@v1.5.4
       with:
-          firefox-version: lates
+          firefox-version: latest
           firefox-option: '--headless'
   
     - name: Setup gradlew
