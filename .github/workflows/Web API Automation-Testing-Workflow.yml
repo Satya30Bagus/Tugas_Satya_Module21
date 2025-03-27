@@ -37,7 +37,7 @@ jobs:
       run: ./gradlew clean test
 
     - name: Archive test results
-      uses: action/upload-artifact@v4.3.0
+      uses: actions/upload-artifact@v4.3.0
       if: always ()
       with:
         name: cucumber reports
