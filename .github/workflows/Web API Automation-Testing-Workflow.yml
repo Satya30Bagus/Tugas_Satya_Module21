@@ -13,7 +13,7 @@ permissions:
 
 jobs:
  Build:
-    runs-on: macos-lates
+    runs-on: ubuntu-lates
 
     steps:
     - uses: actions/checkout@v4
@@ -40,15 +40,7 @@ jobs:
         name: cucumber reports
         path: target/cucumber-reports.html
 
-    #   - name: Run Test
-    # run: ./gradlew clean test
 
-    # - name: Archive test results
-    #   uses: action/upload-artifact@v4.3.0
-    #   if: always()
-    #   with:
-    #     name: cucumber reports
-    #     path: target/cucumber-reports.html
    
 
   
@@ -90,16 +82,7 @@ jobs:
 #     - name: Execute Test
 #       run: ./gradlew clean test
 
-    #   - name: Run Test
-    # run: ./gradlew clean test
-
-    # - name: Archive test results
-    #   uses: action/upload-artifact@v4.3.0
-    #   if: always()
-    #   with:
-    #     name: cucumber reports
-    #     path: target/cucumber-reports.html
-   
+  
 
   
   
