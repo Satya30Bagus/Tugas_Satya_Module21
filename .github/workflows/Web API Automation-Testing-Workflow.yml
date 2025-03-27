@@ -7,10 +7,15 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
+permision: 
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   Web API AutoTest:
 
-    runs-on: macos-latest
+    runs-on: ubuntu-lates
 
     steps:
     - uses: actions/checkout@v4
@@ -21,14 +26,26 @@ jobs:
         java-version: '23'
         distribution: 'temurin'
 
-    - name: Setup Firefox
-  uses: browser-actions/setup-firefox@v1.5.4
+    - name: Setup Chrome with extra capabilities
 
-   - name: gradlew setup
-   run: Chmod +x gradlew
+  uses: browser-actions/setup-chrome@v1.7.3
+  with:
+    chrome-version: lates
+    
+    - name: Build with Gradle
+    run: 
+      chmod +x gradlew
+      ./gradlew build
 
-   - name: Execute test
-   run: ./gradlew cucumber
+    - name: Run Test
+      run: ./gradlew clean test
+
+    - name: Archive test results
+      uses: action/upload-artifact@v4.3.0
+      if: always()
+      with:
+        name: cucumber reports
+        path: target/cucumber-reports.html
    
 
   
