@@ -53,11 +53,11 @@ public class apiPage {
         List<Object> gender = res.jsonPath().getList("gender");
         List<Object> status = res.jsonPath().getList("status");
 
-        assertThat(id.get(0)).isNotNull();
-        assertThat(name.get(0)).isNotNull();
-        assertThat(email.get(0)).isNotNull();
-        assertThat(gender.get(0)).isIn("female", "male");
-        assertThat(status.get(0)).isIn("active", "inactive");
+        assertThat(id.get(1)).isNotNull();
+        assertThat(name.get(1)).isNotNull();
+        assertThat(email.get(1)).isNotNull();
+        assertThat(gender.get(1)).isIn("female", "male");
+        assertThat(status.get(1)).isIn("active", "inactive");
     }
 
     public void validationResponseJsonWithJSONSchema(String filename) {
