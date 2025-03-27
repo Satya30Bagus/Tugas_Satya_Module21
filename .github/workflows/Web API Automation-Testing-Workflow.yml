@@ -28,11 +28,12 @@ jobs:
 
     - name: Setup Chrome with extra capabilities
     uses: browser-actions/setup-chrome@v1.7.3
-    
+
       - name: Build with Gradle
-     run: 
-      chmod +x gradlew
-      ./gradlew build
+          uses: gradle/actions@v4.3.1
+          run: 
+          chmod +x gradlew
+          ./gradlew build
 
     - name: Run Test
       run: ./gradlew clean test
