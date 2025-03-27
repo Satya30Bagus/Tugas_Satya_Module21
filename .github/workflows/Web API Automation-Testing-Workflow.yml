@@ -26,19 +26,23 @@ jobs:
         java-version: '23'
         distribution: 'temurin'
 
-    - name: Setup Chrome with extra capabilities
-    uses: browser-actions/setup-chrome@v1.7.3
+    - name: Setup Firefox
+  # You may pin to the exact commit or the version.
+  # uses: browser-actions/setup-firefox@634a60ccd6599686158cf5a570481b4cd30455a2
+  uses: browser-actions/setup-firefox@v1.5.4
+  with:
+    # The Firefox version to install and use. Examples: 84.0, 84.0.1, latest-esr
+    firefox-version: # optional
+          
 
       - name: Build with Gradle
-          uses: gradle/actions@v4.3.1
-          run: 
-          chmod +x gradlew
+          run:chmod +x gradlew
           ./gradlew build
 
-    - name: Run Test
-      run: ./gradlew clean test
+      - name: Run Test
+    run: ./gradlew clean test
 
-    - name: Archive test results
+        - name: Archive test results
       uses: action/upload-artifact@v4.3.0
       if: always()
       with:
