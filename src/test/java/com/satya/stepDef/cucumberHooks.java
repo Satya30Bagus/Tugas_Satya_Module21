@@ -8,11 +8,11 @@ public class cucumberHooks extends BaseTest {
 
     @Before
     public void beforeTest() {
-//        getDriver();
+        getDriver();
     }
 
     @After
     public void afterTest() {
-//        driver.close();
+
     }
 }
