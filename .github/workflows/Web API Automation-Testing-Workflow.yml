@@ -5,14 +5,14 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-  workflow_dispatch:
 
 permissions: 
   contents: read
   pages: write
+  id-token: write
 
 jobs:
- Build:
+ Web_and_API_Automation_Test:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,7 +31,10 @@ jobs:
           firefox-option: '--headless'
   
     - name: Setup gradlew
-      run: chmod +x gradlew
+      run: |
+       chmod +x gradlew
+       ./gradlew build
+      
 
     - name: Execute Test
       run: ./gradlew clean test
